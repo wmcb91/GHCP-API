@@ -1,0 +1,11 @@
+SELECT p.given_name, p.surname patient, r.course, r.date, r.par, r.score
+FROM rounds r
+INNER JOIN profiles p
+  ON r.profile_id = p.id
+;
+
+
+SELECT p.name, r.name
+FROM recipes r
+INNER JOIN ingredients i
+  ON i.recipe_id = r.id;
