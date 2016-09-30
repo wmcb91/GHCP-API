@@ -6,7 +6,7 @@ RSpec.describe 'Profiles API' do
       given_name: 'alice',
       surname: 'cooper',
       dob: '1992-01-02',
-      state: 'massachusetts',
+      state: 'massachusetts'
     }
   end
 
