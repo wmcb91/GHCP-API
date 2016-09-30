@@ -57,10 +57,10 @@ RSpec.describe Profile do
       expect(rounds_association.name).to eq(:rounds)
     end
 
-    it 'has a set inverse of record' do
-      expect(rounds_association.options[:inverse_of]).to_not be_nil
-      expect(rounds_association.options[:inverse_of]).to eq(:profile)
-    end
+    # it 'has a set inverse of record' do
+    #   expect(rounds_association.options[:inverse_of]).to_not be_nil
+    #   expect(rounds_association.options[:inverse_of]).to eq(:profile)
+    # end
 
     it 'deletes associated rounds when destroyed' do
       expect(rounds_association.options[:dependent]).to eq(:destroy)

@@ -75,9 +75,9 @@ RSpec.describe Round do
       expect(profile_association.name).to eq(:profile)
     end
 
-    it 'has a set inverse of record' do
-      expect(profile_association.options[:inverse_of]).to_not be_nil
-      expect(profile_association.options[:inverse_of]).to eq(:round)
-    end
+    # it 'has a set inverse of record' do
+    #   expect(profile_association.options[:inverse_of]).to_not be_nil
+    #   expect(profile_association.options[:inverse_of]).to eq(:round)
+    # end
   end
 end
