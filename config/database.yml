@@ -1,4 +1,4 @@
-<% project_name = 'rails-api-cap' %>
+<% project_name = 'GHCP-API' %>
 
 default: &default
   adapter: postgresql
