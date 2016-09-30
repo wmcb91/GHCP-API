@@ -3,5 +3,5 @@ class Profile < ActiveRecord::Base
   validates :surname, presence: true
   validates :dob, presence: true
   validates :state, presence: true
-  has_many :rounds, inverse_of: :profile, dependent: :destroy
+  has_many :rounds, dependent: :destroy
 end
