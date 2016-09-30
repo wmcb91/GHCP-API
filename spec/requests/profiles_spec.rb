@@ -64,7 +64,7 @@ RSpec.describe 'Profiles API' do
 
   describe 'PATCH /profiles/:id' do
     def profile_diff
-      { surname: 'henderson' }
+      { given_name: 'charlie' }
     end
 
     it 'updates an profile' do

@@ -65,23 +65,19 @@ RSpec.describe Round do
     end
   end
 
-  describe 'rounds association' do
-    def rounds_association
-      described_class.reflect_on_association(:rounds)
+  describe 'profile association' do
+    def profile_association
+      described_class.reflect_on_association(:profile)
     end
 
-    it 'has the name rounds' do
-      expect(rounds_association).to_not be_nil
-      expect(rounds_association.name).to eq(:rounds)
+    it 'has the name profile' do
+      expect(profile_association).to_not be_nil
+      expect(profile_association.name).to eq(:profile)
     end
 
     it 'has a set inverse of record' do
-      expect(rounds_association.options[:inverse_of]).to_not be_nil
-      expect(rounds_association.options[:inverse_of]).to eq(:round)
-    end
-
-    it 'deletes associated rounds when destroyed' do
-      expect(rounds_association.options[:dependent]).to eq(:destroy)
+      expect(profile_association.options[:inverse_of]).to_not be_nil
+      expect(profile_association.options[:inverse_of]).to eq(:round)
     end
   end
 end

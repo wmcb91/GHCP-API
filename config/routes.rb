@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :profiles, except: [:new, :edit]
+  resources :rounds, except: [:new, :edit]
 end
