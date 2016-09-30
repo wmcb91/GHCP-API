@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
 
-  resources :profiles, only: [:index]
+  resources :profiles, only: [:index, :show]
 end

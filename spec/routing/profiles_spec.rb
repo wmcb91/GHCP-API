@@ -5,7 +5,7 @@ RSpec.describe 'routes for profiles' do
     expect(get('/profiles')).to route_to('profiles#index')
   end
 
-  skip 'routes GET /profiles/:id to the profiles#show action' do
+  it 'routes GET /profiles/:id to the profiles#show action' do
     expect(get('/profiles/1')).to route_to(
       controller: 'profiles',
       action: 'show',

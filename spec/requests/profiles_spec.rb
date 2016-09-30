@@ -39,7 +39,7 @@ RSpec.describe 'Profiles API' do
   end
 
   describe 'GET /profiles/:id' do
-    skip 'shows one profile' do
+    it 'shows one profile' do
       get "/profiles/#{profile.id}"
 
       expect(response).to be_success

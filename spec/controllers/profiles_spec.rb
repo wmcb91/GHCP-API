@@ -35,24 +35,24 @@ RSpec.describe ProfilesController do
     end
   end
 
-  # describe 'GET show' do
-  #   before(:each) { get :show, id: profile.id }
-  #   skip 'is successful' do
-  #     expect(response.status).to eq(200)
-  #   end
-  #
-  #   skip 'renders a JSON response' do
-  #     profile_response = JSON.parse(response.body)
-  #     expect(profile_response).not_to be_nil
-  #     puts 'profile response is'
-  #     puts profile_response
-  #   end
-  #
-  #   skip 'renders a hash' do
-  #     profile_response = JSON.parse(response.body)
-  #     expect(profile_response).to a_kind_of(Hash)
-  #   end
-  # end
+  describe 'GET show' do
+    before(:each) { get :show, id: profile.id }
+    it 'is successful' do
+      expect(response.status).to eq(200)
+    end
+
+    it 'renders a JSON response' do
+      profile_response = JSON.parse(response.body)
+      expect(profile_response).not_to be_nil
+      puts 'profile response is'
+      puts profile_response
+    end
+
+    it 'renders a hash' do
+      profile_response = JSON.parse(response.body)
+      expect(profile_response).to a_kind_of(Hash)
+    end
+  end
   #
   # describe 'POST create' do
   #   before(:each) do
