@@ -74,7 +74,7 @@ RSpec.describe RoundsController do
 
   describe 'PATCH update' do
     def round_diff
-      { score: 82 }
+      { score: 83 }
     end
 
     before(:each) do

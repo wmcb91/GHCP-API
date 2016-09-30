@@ -17,35 +17,49 @@ RSpec.describe Round do
       }
     end
 
-    it 'validates the presence of an round\'s given_name,
-    surname, dob, and state' do
+    it 'validates the presence of an round\'s course, date,
+    rating, slope, par and score' do
       expect(Round.create(valid_params)).to be_valid
     end
 
-    describe 'given_name' do
-      it 'is invalid without surname' do
-        invalid_params = valid_params.select { |key, _| key == :given_name }
+    describe 'course' do
+      it 'is invalid without course' do
+        invalid_params = valid_params.select { |key, _| key == :course }
         expect(Round.create(invalid_params)).to be_invalid
       end
     end
 
-    describe 'surname' do
-      it 'is invalid without given_name' do
-        invalid_params = valid_params.select { |key, _| key == :surname }
+    describe 'date' do
+      it 'is invalid without date' do
+        invalid_params = valid_params.select { |key, _| key == :date }
         expect(Round.create(invalid_params)).to be_invalid
       end
     end
 
-    describe 'surname' do
-      it 'is invalid without given_name' do
-        invalid_params = valid_params.select { |key, _| key == :dob }
+    describe 'rating' do
+      it 'is invalid without rating' do
+        invalid_params = valid_params.select { |key, _| key == :rating }
         expect(Round.create(invalid_params)).to be_invalid
       end
     end
 
-    describe 'surname' do
-      it 'is invalid without given_name' do
-        invalid_params = valid_params.select { |key, _| key == :state }
+    describe 'slope' do
+      it 'is invalid without slope' do
+        invalid_params = valid_params.select { |key, _| key == :slope }
+        expect(Round.create(invalid_params)).to be_invalid
+      end
+    end
+
+    describe 'par' do
+      it 'is invalid without par' do
+        invalid_params = valid_params.select { |key, _| key == :par }
+        expect(Round.create(invalid_params)).to be_invalid
+      end
+    end
+
+    describe 'score' do
+      it 'is invalid without score' do
+        invalid_params = valid_params.select { |key, _| key == :score }
         expect(Round.create(invalid_params)).to be_invalid
       end
     end

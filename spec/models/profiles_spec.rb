@@ -26,21 +26,21 @@ RSpec.describe Profile do
     end
 
     describe 'surname' do
-      it 'is invalid without given_name' do
+      it 'is invalid without surname' do
         invalid_params = valid_params.select { |key, _| key == :surname }
         expect(Profile.create(invalid_params)).to be_invalid
       end
     end
 
     describe 'surname' do
-      it 'is invalid without given_name' do
+      it 'is invalid without dob' do
         invalid_params = valid_params.select { |key, _| key == :dob }
         expect(Profile.create(invalid_params)).to be_invalid
       end
     end
 
     describe 'surname' do
-      it 'is invalid without given_name' do
+      it 'is invalid without state' do
         invalid_params = valid_params.select { |key, _| key == :state }
         expect(Profile.create(invalid_params)).to be_invalid
       end

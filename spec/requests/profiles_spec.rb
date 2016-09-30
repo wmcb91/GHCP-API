@@ -34,7 +34,7 @@ RSpec.describe 'Profiles API' do
 
       profiles_response = JSON.parse(response.body)
       expect(profiles_response.length).to eq(profiles.count)
-      expect(profiles_response.first['title']).to eq(profile[:title])
+      expect(profiles_response.first['given_name']).to eq(profile[:given_name])
     end
   end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Profiles API' do
 
       profile_response = JSON.parse(response.body)
       expect(profile_response['id']).not_to be_nil
-      expect(profile_response['title']).to eq(profile[:title])
+      expect(profile_response['given_name']).to eq(profile[:given_name])
     end
   end
 
@@ -58,7 +58,7 @@ RSpec.describe 'Profiles API' do
 
       profile_response = JSON.parse(response.body)
       expect(profile_response).not_to be_nil
-      expect(profile_response['title']).to eq(profile_params[:title])
+      expect(profile_response['given_name']).to eq(profile_params[:given_name])
     end
   end
 
@@ -74,7 +74,7 @@ RSpec.describe 'Profiles API' do
 
       profile_response = JSON.parse(response.body)
       expect(profile_response['id']).to eq(profile[:id])
-      expect(profile_response['title']).to eq(profile_diff[:title])
+      expect(profile_response['given_name']).to eq(profile_diff[:given_name])
     end
   end
 

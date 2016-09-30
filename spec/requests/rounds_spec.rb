@@ -66,7 +66,7 @@ RSpec.describe 'Rounds API' do
 
   describe 'PATCH /rounds/:id' do
     def round_diff
-      { surname: 'henderson' }
+      { score: 83 }
     end
 
     it 'updates an round' do
