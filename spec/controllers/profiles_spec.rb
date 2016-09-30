@@ -90,7 +90,7 @@ RSpec.describe ProfilesController do
   end
 
   describe 'DELETE destroy' do
-    skip 'is successful and returns an empty response' do
+    it 'is successful and returns an empty response' do
       delete :destroy, id: profile.id
 
       expect(response.status).to eq(204)

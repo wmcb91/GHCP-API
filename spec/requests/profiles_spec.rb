@@ -79,7 +79,7 @@ RSpec.describe 'Profiles API' do
   end
 
   describe 'DELETE /profiles/:id' do
-    skip 'deletes an profile' do
+    it 'deletes an profile' do
       delete "/profiles/#{profile.id}"
 
       expect(response).to be_success

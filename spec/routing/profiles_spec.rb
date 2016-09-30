@@ -25,7 +25,7 @@ RSpec.describe 'routes for profiles' do
     )
   end
 
-  skip 'routes DELETE /profiles/:id to the profiles#destroy action' do
+  it 'routes DELETE /profiles/:id to the profiles#destroy action' do
     expect(delete('/profiles/1')).to route_to(
       controller: 'profiles',
       action: 'destroy',
