@@ -157,5 +157,12 @@ Round.create([
                  slope: 133,
                  par: 72,
                  score: 71,
+                 profile_id: 3 },
+               { course: 'Lake Tahoe Golf Course',
+                 date: '2016-10-10',
+                 rating: 71.3,
+                 slope: 124,
+                 par: 71,
+                 score: 63,
                  profile_id: 3 }
              ])
