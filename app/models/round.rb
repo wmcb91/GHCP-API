@@ -5,5 +5,6 @@ class Round < ActiveRecord::Base
   validates :slope, presence: true
   validates :par, presence: true
   validates :score, presence: true
+  # ^^ Is this stuff necessary? ^^
   belongs_to :profile, inverse_of: :round
 end
