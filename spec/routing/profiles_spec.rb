@@ -13,7 +13,7 @@ RSpec.describe 'routes for profiles' do
     )
   end
 
-  skip 'routes POST /profiles to the profiles#create action' do
+  it 'routes POST /profiles to the profiles#create action' do
     expect(post('/profiles')).to route_to('profiles#create')
   end
 

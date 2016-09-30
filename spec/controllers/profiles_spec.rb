@@ -53,48 +53,48 @@ RSpec.describe ProfilesController do
       expect(profile_response).to a_kind_of(Hash)
     end
   end
-  #
-  # describe 'POST create' do
-  #   before(:each) do
-  #     post :create, profile: profile_params, format: :json
-  #   end
-  #
-  #   skip 'is successful' do
-  #     expect(response.status).to eq(201)
-  #   end
-  #
-  #   skip 'renders a JSON response' do
-  #     profile_response = JSON.parse(response.body)
-  #     expect(profile_response).not_to be_nil
-  #     expect(profile_response['title']).to eq(profile.title)
-  #   end
-  # end
-  #
-  # describe 'PATCH update' do
-  #   def profile_diff
-  #     { surname: 'henderson' }
-  #   end
-  #
-  #   before(:each) do
-  #     patch :update, id: profile.id, profile: profile_diff, format: :json
-  #   end
-  #
-  #   skip 'is successful' do
-  #     expect(response.status).to eq(200)
-  #   end
-  #
-  #   skip 'renders a JSON response' do
-  #     profile_response = JSON.parse(response.body)
-  #     expect(profile_response).not_to be_nil
-  #   end
-  # end
-  #
-  # describe 'DELETE destroy' do
-  #   skip 'is successful and returns an empty response' do
-  #     delete :destroy, id: profile.id
-  #
-  #     expect(response.status).to eq(204)
-  #     expect(response.body).to be_empty
-  #   end
-  # end
+
+  describe 'POST create' do
+    before(:each) do
+      post :create, profile: profile_params, format: :json
+    end
+
+    it 'is successful' do
+      expect(response.status).to eq(201)
+    end
+
+    it 'renders a JSON response' do
+      profile_response = JSON.parse(response.body)
+      expect(profile_response).not_to be_nil
+      expect(profile_response['given_name']).to eq(profile.given_name)
+    end
+  end
+
+  describe 'PATCH update' do
+    def profile_diff
+      { surname: 'henderson' }
+    end
+
+    before(:each) do
+      patch :update, id: profile.id, profile: profile_diff, format: :json
+    end
+
+    skip 'is successful' do
+      expect(response.status).to eq(200)
+    end
+
+    skip 'renders a JSON response' do
+      profile_response = JSON.parse(response.body)
+      expect(profile_response).not_to be_nil
+    end
+  end
+
+  describe 'DELETE destroy' do
+    skip 'is successful and returns an empty response' do
+      delete :destroy, id: profile.id
+
+      expect(response.status).to eq(204)
+      expect(response.body).to be_empty
+    end
+  end
 end

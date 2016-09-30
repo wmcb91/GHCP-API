@@ -51,7 +51,7 @@ RSpec.describe 'Profiles API' do
   end
 
   describe 'POST /profiles' do
-    skip 'creates an profile' do
+    it 'creates an profile' do
       post '/profiles', profile: profile_params, format: :json
 
       expect(response).to be_success
