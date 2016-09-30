@@ -79,11 +79,11 @@ RSpec.describe ProfilesController do
       patch :update, id: profile.id, profile: profile_diff, format: :json
     end
 
-    skip 'is successful' do
+    it 'is successful' do
       expect(response.status).to eq(200)
     end
 
-    skip 'renders a JSON response' do
+    it 'renders a JSON response' do
       profile_response = JSON.parse(response.body)
       expect(profile_response).not_to be_nil
     end

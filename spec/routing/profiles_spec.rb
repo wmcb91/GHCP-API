@@ -17,7 +17,7 @@ RSpec.describe 'routes for profiles' do
     expect(post('/profiles')).to route_to('profiles#create')
   end
 
-  skip 'routes PATCH /profiles/:id to the profiles#update action' do
+  it 'routes PATCH /profiles/:id to the profiles#update action' do
     expect(patch('/profiles/1')).to route_to(
       controller: 'profiles',
       action: 'update',

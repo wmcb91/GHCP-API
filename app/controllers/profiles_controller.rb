@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show]
+  before_action :set_profile, only: [:show, :update]
   def index
     @profiles = Profile.all
     render json: @profiles
@@ -14,6 +14,14 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       render json: @profile, status: :created
+    else
+      render json: @profile.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @profile.update(profile_params)
+      render json: @profile, status: :ok
     else
       render json: @profile.errors, status: :unprocessable_entity
     end

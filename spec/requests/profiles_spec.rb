@@ -67,7 +67,7 @@ RSpec.describe 'Profiles API' do
       { surname: 'henderson' }
     end
 
-    skip 'updates an profile' do
+    it 'updates an profile' do
       patch "/profiles/#{profile.id}", profile: profile_diff, format: :json
 
       expect(response).to be_success
