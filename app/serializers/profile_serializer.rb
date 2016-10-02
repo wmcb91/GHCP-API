@@ -1,5 +1,5 @@
 class ProfileSerializer < ActiveModel::Serializer
-  attributes :id, :given_name, :surname, :dob, :state, :rounds
+  attributes :id, :given_name, :surname, :state, :home_course, :rounds
   belongs_to :user
   has_many :rounds
 end
