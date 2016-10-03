@@ -1,6 +1,6 @@
 class Round < ActiveRecord::Base
   validates :course, presence: true
-  validates :date, presence: true
+  validates :date_played, presence: true
   validates :rating, presence: true
   validates :slope, presence: true
   validates :par, presence: true

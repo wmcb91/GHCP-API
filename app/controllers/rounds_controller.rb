@@ -43,6 +43,6 @@ class RoundsController < ApplicationController
   end
 
   def round_params
-    params.permit(:course, :date, :rating, :slope, :par, :score)
+    params.permit(:course, :date_played, :rating, :slope, :par, :score)
   end
 end
