@@ -5,7 +5,7 @@ class RoundSerializer < ActiveModel::Serializer
              :rating,
              :slope,
              :par,
-             :score,
-             :profile_id
+             :score
+
   belongs_to :profile
 end
