@@ -45,7 +45,6 @@ class ProfilesController < ApplicationController
   def profile_params
     params.permit(:surname,
                   :home_course,
-                  :state,
                   :user_id,
                   :given_name)
   end
