@@ -1,4 +1,4 @@
-class RoundsController < ApplicationController
+class RoundsController < ProtectedController
   before_action :set_round, only: [:show, :update, :destroy]
 
   def index
@@ -43,12 +43,12 @@ class RoundsController < ApplicationController
   end
 
   def round_params
-    params.permit(:course,
-                  :date_played,
-                  :rating,
-                  :slope,
-                  :par,
-                  :score,
-                  :profile_id)
+    params.require(:rounds).params.permit(:course,
+                                          :date_played,
+                                          :rating,
+                                          :slope,
+                                          :par,
+                                          :score,
+                                          :profile_id)
   end
 end
