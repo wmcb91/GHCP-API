@@ -24,7 +24,8 @@ class RoundsController < OpenReadController
 
   def update
     if @round.update(round_params)
-      render json: @round, status: :ok
+      head :no_content
+      # render json: @round, status: :ok
     else
       render json: @round.errors, status: :unprocessable_entity
     end

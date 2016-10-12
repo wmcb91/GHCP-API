@@ -28,7 +28,8 @@ class ProfilesController < ProtectedController
   # PATCH /profiles/:id
   def update
     if @profile.update(profile_params)
-      render json: @profile, status: :ok
+      head :no_content
+      # render json: @profile, status: :ok
     else
       render json: @profile.errors, status: :unprocessable_entity
     end
