@@ -3,7 +3,7 @@ class ProfilesController < ProtectedController
 
   # GET /profiles
   def index
-    @profiles = current_user.profiles
+    @profiles = current_user.profiles.all
     # @profiles = Profile.all
     render json: @profiles
   end
@@ -46,7 +46,7 @@ class ProfilesController < ProtectedController
   private
 
   def set_profile
-    @profile = current_user.profile.find(params[:id])
+    @profile = current_user.profiles.find(params[:id])
   end
 
   # def set_profile
@@ -54,9 +54,9 @@ class ProfilesController < ProtectedController
   # end
 
   def profile_params
-    params.require(:profiles).params.permit(:surname,
-                                            :home_course,
-                                            :user_id,
-                                            :given_name)
+    params.require(:profile).permit(:given_name,
+                                    :surname,
+                                    :home_course,
+                                    :user_id)
   end
 end

@@ -2,7 +2,7 @@ class RoundsController < ProtectedController
   before_action :set_round, only: [:show, :update, :destroy]
 
   def index
-    @rounds = Round.all
+    @rounds = current_user.rounds.all
     render json: @rounds
   end
 
@@ -11,7 +11,8 @@ class RoundsController < ProtectedController
   end
 
   def create
-    @round = Round.new(round_params)
+    @round = current_user.rounds.build(round_params)
+    # @round = Round.new(round_params)
 
     if @round.save
       render json: @round, status: :created
@@ -38,17 +39,21 @@ class RoundsController < ProtectedController
 
   private
 
-  def set_round
-    @round = Round.find(params[:id])
+  def set_profile
+    @round = current_user.rounds.find(params[:id])
   end
 
+  # def set_round
+  #   @round = Round.find(params[:id])
+  # end
+
   def round_params
-    params.require(:rounds).params.permit(:course,
-                                          :date_played,
-                                          :rating,
-                                          :slope,
-                                          :par,
-                                          :score,
-                                          :profile_id)
+    params.require(:round).params.permit(:course,
+                                         :date_played,
+                                         :rating,
+                                         :slope,
+                                         :par,
+                                         :score,
+                                         :profile_id)
   end
 end
