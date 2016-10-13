@@ -2,8 +2,8 @@ class RoundsController < OpenReadController
   before_action :set_round, only: [:show, :update, :destroy]
 
   def index
-    # @rounds = current_user.rounds.all
-    @rounds = Rounds.all
+    @rounds = current_user.rounds.all
+    # @rounds = Rounds.all
     render json: @rounds
   end
 
