@@ -1,8 +1,9 @@
-class RoundsController < ApplicationController
+class RoundsController < OpenReadController
   before_action :set_round, only: [:show, :update, :destroy]
 
   def index
-    @rounds = Round.all
+    # @rounds = current_user.rounds.all
+    @rounds = Rounds.all
     render json: @rounds
   end
 
@@ -11,6 +12,7 @@ class RoundsController < ApplicationController
   end
 
   def create
+    # @round = current_user.rounds.build(round_params)
     @round = Round.new(round_params)
 
     if @round.save
@@ -22,7 +24,8 @@ class RoundsController < ApplicationController
 
   def update
     if @round.update(round_params)
-      render json: @round, status: :ok
+      head :no_content
+      # render json: @round, status: :ok
     else
       render json: @round.errors, status: :unprocessable_entity
     end
@@ -38,17 +41,21 @@ class RoundsController < ApplicationController
 
   private
 
+  # def set_profile
+  #   @round = current_user.rounds.find(params[:id])
+  # end
+
   def set_round
     @round = Round.find(params[:id])
   end
 
   def round_params
-    params.permit(:course,
-                  :date_played,
-                  :rating,
-                  :slope,
-                  :par,
-                  :score,
-                  :profile_id)
+    params.require(:round).permit(:course,
+                                  :date_played,
+                                  :par,
+                                  :profile_id,
+                                  :rating,
+                                  :score,
+                                  :slope)
   end
 end
