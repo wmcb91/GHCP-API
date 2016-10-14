@@ -1,6 +1,6 @@
 class RoundsController < ProtectedController
-  before_action :set_round, only: [:update, :destroy]
-  before_action :set_profile, only: [:create, :update, :destroy]
+  # before_action :set_round, only: [:destroy]
+  before_action :set_profile, only: [:create, :destroy]
 
   # def index
   #   @rounds = current_user.profiles.all
@@ -17,12 +17,6 @@ class RoundsController < ProtectedController
   # if current_user owns profile_id, you can give post.
 
   def create
-    p @profile
-    puts "User profiles are #{current_user.profiles}"
-    puts "params from client are #{params}"
-    puts "profile_id from client is #{params[:round][:profile_id]}"
-    puts "Specific prof is #{current_user.profiles.find(params[:profile_id])}"
-
     @round = @profile.rounds.build(round_params)
     if @round.save
       render json: @round, status: :created
@@ -40,29 +34,22 @@ class RoundsController < ProtectedController
   #   end
   # end
 
-  def destroy
-    if @round.destroy
-      head :no_content
-    else
-      render json: @round.errors, status: :unprocessable_entity
-    end
-  end
+  # def destroy
+  #   if @round.destroy
+  #     head :no_content
+  #   else
+  #     render json: @round.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   private
-
-  # def set_profile
-  #   @profile = current_user.profiles.find(params[:id])
-  # end
-  # def profile_id
-  #   @profile.find(params[:id])
-  # end
 
   def set_profile
     @profile = current_user.profiles.find(params[:round][:profile_id])
   end
 
   def set_round
-    @round = @profile.find(params[:id])
+    @round = current_user.profiles.find(params[:round][:id])
   end
 
   def round_params

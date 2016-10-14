@@ -5,7 +5,7 @@ curl --include --request POST http://localhost:3000/rounds \
   --header "Content-Type: application/json" \
   --data '{
     "round": {
-      "course": "Concord",
+      "course": "LETSGOOO",
       "date_played": "2016-10-12",
       "par": 72,
       "profile_id": 3,
