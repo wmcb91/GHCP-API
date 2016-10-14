@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :profiles, except: [:new, :edit]
   resources :rounds, except: [:new, :edit]
+  # get '/profiles/:id/rounds' => 'rounds#index'
 end
