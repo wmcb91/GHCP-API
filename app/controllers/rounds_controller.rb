@@ -17,8 +17,12 @@ class RoundsController < ProtectedController
   # if current_user owns profile_id, you can give post.
 
   def create
-    # test if controller has been reached
     p @profile
+    puts "User profiles are #{current_user.profiles}"
+    puts "params from client are #{params}"
+    puts "profile_id from client is #{params[:round][:profile_id]}"
+    puts "Specific prof is #{current_user.profiles.find(params[:profile_id])}"
+
     @round = @profile.rounds.build(round_params)
     if @round.save
       render json: @round, status: :created
@@ -54,7 +58,7 @@ class RoundsController < ProtectedController
   # end
 
   def set_profile
-    @profile = current_user.profiles.find_by(id: :profile_id)
+    @profile = current_user.profiles.find(params[:round][:profile_id])
   end
 
   def set_round
