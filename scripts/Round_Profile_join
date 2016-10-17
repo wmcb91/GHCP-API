@@ -5,7 +5,20 @@ INNER JOIN profiles p
 ;
 
 
+
+
+
+
 SELECT p.name, r.name
 FROM recipes r
 INNER JOIN ingredients i
   ON i.recipe_id = r.id;
+
+
+DELETE
+FROM rounds
+WHERE score = 76;
+
+UPDATE rounds
+SET course = 'Brookline Golf Club'
+WHERE slope = 120;
