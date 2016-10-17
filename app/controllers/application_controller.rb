@@ -26,6 +26,11 @@ class ApplicationController < ActionController::API
   # call from actions to get authenticated user (or nil)
   attr_reader :current_user
 
+  # get the current_user's profiles
+  # def current_profiles
+  #   current_user.profiles
+  # end
+
   # call from unauthenticated actions that want current_user if available
   def set_current_user
     # for access to authenticate method

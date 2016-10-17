@@ -1,20 +1,23 @@
-class RoundsController < OpenReadController
-  before_action :set_round, only: [:show, :update, :destroy]
+class RoundsController < ProtectedController
+  # before_action :set_round, only: [:destroy]
+  before_action :set_profile, only: [:create, :destroy]
 
-  def index
-    # @rounds = current_user.rounds.all
-    @rounds = Rounds.all
-    render json: @rounds
-  end
+  # def index
+  #   @rounds = current_user.profiles.all
+  #   @rounds = Rounds.all
+  #   render json: @rounds
+  #   @rounds = current_user.profiles.findBy(params[:id]).rounds
+  #   @rounds = @profile.rounds.all
+  #   render json: @rounds
+  # end
 
-  def show
-    render json: @round
-  end
+  # def show
+  #   render json: @round
+  # end
+  # if current_user owns profile_id, you can give post.
 
   def create
-    # @round = current_user.rounds.build(round_params)
-    @round = Round.new(round_params)
-
+    @round = @profile.rounds.build(round_params)
     if @round.save
       render json: @round, status: :created
     else
@@ -22,31 +25,31 @@ class RoundsController < OpenReadController
     end
   end
 
-  def update
-    if @round.update(round_params)
-      head :no_content
-      # render json: @round, status: :ok
-    else
-      render json: @round.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @round.update(round_params)
+  #     head :no_content
+  #     # render json: @round, status: :ok
+  #   else
+  #     render json: @round.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  def destroy
-    if @round.destroy
-      head :no_content
-    else
-      render json: @round.errors, status: :unprocessable_entity
-    end
-  end
+  # def destroy
+  #   if @round.destroy
+  #     head :no_content
+  #   else
+  #     render json: @round.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 
-  # def set_profile
-  #   @round = current_user.rounds.find(params[:id])
-  # end
+  def set_profile
+    @profile = current_user.profiles.find(params[:round][:profile_id])
+  end
 
   def set_round
-    @round = Round.find(params[:id])
+    @round = current_user.profiles.find(params[:round][:id])
   end
 
   def round_params
