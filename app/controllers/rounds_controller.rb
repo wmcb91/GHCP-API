@@ -19,9 +19,9 @@ class RoundsController < ProtectedController
   # def differential
   #   (@round.score - @round.rating) * 113 / @round.rating
   # end
-  #
-  # def create
-  #   @round = @profile.rounds.build(round_params)
+
+  def create
+    @round = @profile.rounds.build(round_params)
 
     if @round.save
       render json: @round, status: :created
@@ -30,22 +30,22 @@ class RoundsController < ProtectedController
     end
   end
 
-  # def update
-  #   if @round.update(round_params)
-  #     head :no_content
-  #     # render json: @round, status: :ok
-  #   else
-  #     render json: @round.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    if @round.update(round_params)
+      head :no_content
+      # render json: @round, status: :ok
+    else
+      render json: @round.errors, status: :unprocessable_entity
+    end
+  end
 
-  # def destroy
-  #   if @round.destroy
-  #     head :no_content
-  #   else
-  #     render json: @round.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def destroy
+    if @round.destroy
+      head :no_content
+    else
+      render json: @round.errors, status: :unprocessable_entity
+    end
+  end
 
   private
 

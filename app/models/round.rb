@@ -6,4 +6,8 @@ class Round < ActiveRecord::Base
   validates :par, presence: true
   validates :score, presence: true
   belongs_to :profile
+
+  def self.default_scope
+    order(date_played: :asc, created_at: :asc).limit(20)
+  end
 end
