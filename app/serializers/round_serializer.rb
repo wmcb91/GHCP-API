@@ -6,5 +6,6 @@ class RoundSerializer < ActiveModel::Serializer
              :slope,
              :par,
              :score,
-             :profile_id
+             :profile_id,
+             :differential
 end
