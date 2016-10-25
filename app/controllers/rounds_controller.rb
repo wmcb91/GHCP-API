@@ -1,15 +1,11 @@
 class RoundsController < ProtectedController
   # before_action :set_round, only: [:destroy]
-  before_action :set_profile, only: [:create, :destroy]
+  before_action :set_profile, only: [:index, :create, :destroy]
 
-  # def index
-  #   @rounds = current_user.profiles.all
-  #   @rounds = Rounds.all
-  #   render json: @rounds
-  #   @rounds = current_user.profiles.findBy(params[:id]).rounds
-  #   @rounds = @profile.rounds.all
-  #   render json: @rounds
-  # end
+  def index
+    @rounds = @profile.rounds.all
+    render json: @rounds
+  end
 
   # def show
   #   render json: @round
@@ -30,22 +26,22 @@ class RoundsController < ProtectedController
     end
   end
 
-  def update
-    if @round.update(round_params)
-      head :no_content
-      # render json: @round, status: :ok
-    else
-      render json: @round.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @round.update(round_params)
+  #     head :no_content
+  #     # render json: @round, status: :ok
+  #   else
+  #     render json: @round.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  def destroy
-    if @round.destroy
-      head :no_content
-    else
-      render json: @round.errors, status: :unprocessable_entity
-    end
-  end
+  # def destroy
+  #   if @round.destroy
+  #     head :no_content
+  #   else
+  #     render json: @round.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 

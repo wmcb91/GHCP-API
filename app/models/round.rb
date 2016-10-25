@@ -8,6 +8,6 @@ class Round < ActiveRecord::Base
   belongs_to :profile
 
   def self.default_scope
-    order(date_played: :asc, created_at: :asc).limit(20)
+    order(date_played: :desc, created_at: :desc)
   end
 end
