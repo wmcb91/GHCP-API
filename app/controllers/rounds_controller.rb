@@ -16,8 +16,13 @@ class RoundsController < ProtectedController
   # end
   # if current_user owns profile_id, you can give post.
 
-  def create
-    @round = @profile.rounds.build(round_params)
+  # def differential
+  #   (@round.score - @round.rating) * 113 / @round.rating
+  # end
+  #
+  # def create
+  #   @round = @profile.rounds.build(round_params)
+
     if @round.save
       render json: @round, status: :created
     else
