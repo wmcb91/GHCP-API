@@ -41,7 +41,7 @@ module GHCPApi
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_ORIGIN'] || 'https://wmcb91.github.io/GHCP'
+        origins ENV['CLIENT_ORIGIN'] || 'https://wmcb91.github.io'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
