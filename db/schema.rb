@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025131305) do
+ActiveRecord::Schema.define(version: 20161117010714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(version: 20161025131305) do
   create_table "profiles", force: :cascade do |t|
     t.string   "given_name"
     t.string   "surname"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
     t.string   "home_course"
+    t.integer  "home_course_slope"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -43,10 +44,10 @@ ActiveRecord::Schema.define(version: 20161025131305) do
     t.integer  "par"
     t.integer  "score"
     t.integer  "profile_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.date     "date_played"
-    t.float    "differential"
+    t.decimal  "differential", precision: 4, scale: 1
   end
 
   add_index "rounds", ["profile_id"], name: "index_rounds_on_profile_id", using: :btree

@@ -10,8 +10,4 @@ class Round < ActiveRecord::Base
   def self.default_scope
     order(date_played: :desc, created_at: :desc)
   end
-
-  def self.differential
-    (:score - :rating) * 113 / :rating
-  end
 end

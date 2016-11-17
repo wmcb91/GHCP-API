@@ -7,20 +7,8 @@ class RoundsController < ProtectedController
     render json: @rounds
   end
 
-  # def show
-  #   render json: @round
-  # end
-  # if current_user owns profile_id, you can give post.
-
-  # def differential
-  #   @round[:differential] = (params[:score] - params[:rating]) * 113 / params[:rating]
-  # end
-
   def create
     @round = @profile.rounds.build(round_params)
-    @round[:differential] = ((@round[:score] - @round[:rating]) * 113 / @round[:rating] * 1.00)
-    puts 'Hello diff'
-    puts @round[:differential]
 
     if @round.save
       render json: @round, status: :created

@@ -58,6 +58,7 @@ class ProfilesController < ProtectedController
     params.require(:profile).permit(:given_name,
                                     :surname,
                                     :home_course,
+                                    :home_course_slope,
                                     :user_id)
   end
 end
